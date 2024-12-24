@@ -27,6 +27,7 @@ body {
   padding: 10px;
   overflow-y: auto;
   font-family: monospace;
+  color: white;
 }
 #console {
   height: 30%;

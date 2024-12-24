@@ -1,14 +1,10 @@
-// Initialize Ace editor
-const editor = ace.edit("editor");
-editor.setTheme("ace/theme/ambiance");
-editor.session.setMode("ace/mode/python");
-
 // Initialize button click event
 const btn = document.getElementById("run-code");
 const consoleOutput = document.getElementById('console');
 
 btn.addEventListener("click", (event) => {
-    const pythonCode = editor.getValue();
+    const editor = document.getElementById("editor");
+    const pythonCode = editor.textContent;
     consoleOutput.innerText = "Running...";
 
     try {
@@ -41,3 +37,25 @@ async function main(pythonCode) {
         outputDiv.innerText = `Error: ${error.message}`;
     }
 }
+
+document.getElementById('editor').addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') {
+        e.preventDefault();
+        const editor = e.target;
+        const selection = window.getSelection();
+        const range = selection.getRangeAt(0);
+
+        // Insert a tab space (4 spaces)
+        const tabNode = document.createTextNode('    ');
+        range.insertNode(tabNode);
+
+        // Move caret after the tab space
+        range.setStartAfter(tabNode);
+        range.setEndAfter(tabNode);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+});
+
+
+
