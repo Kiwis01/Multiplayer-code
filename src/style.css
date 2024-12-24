@@ -22,20 +22,22 @@ body {
   flex-direction: column;
 }
 #editor {
-  flex: 1;
-  background: #282c34;
-  padding: 10px;
-  overflow-y: auto;
+  display: block; 
+  color: white; 
+  background: #1e1e1e; 
+  width: 100%; 
+  height: 700px; 
+  padding: 10px; 
+  overflow-y: auto; 
   font-family: monospace;
-  color: white;
 }
 #console {
-  height: 30%;
-  background-color: #212529;
+  background-color: #1e1e1e;
   color: white;
   padding: 10px;
   overflow-y: auto;
   font-family: monospace;
+  height: 150px;
 }
 .problem-title {
   font-size: 1.5rem;
