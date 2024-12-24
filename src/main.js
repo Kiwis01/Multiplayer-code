@@ -1,10 +1,21 @@
-// Initialize button click event
+// Code editor
+const editor = CodeMirror(document.getElementById("editor"), {
+    mode: "python",      
+    theme: "material",        // to change: https://codemirror.net/5/demo/theme.html#material
+    lineNumbers: true,       // line numbers
+    value: "print('Hello, Lug')", // Initial content
+    tabSize: 4,             
+    indentWithTabs: true     
+});
+// Size change for code editor
+editor.setSize(1100, 600);
+
+// Run code button event to handle running the code
 const btn = document.getElementById("run-code");
 const consoleOutput = document.getElementById('console');
 
 btn.addEventListener("click", (event) => {
-    const editor = document.getElementById("editor");
-    const pythonCode = editor.textContent;
+    const pythonCode = editor.getValue();
     consoleOutput.innerText = "Running...";
 
     try {
@@ -38,24 +49,7 @@ async function main(pythonCode) {
     }
 }
 
-document.getElementById('editor').addEventListener('keydown', function (e) {
-    if (e.key === 'Tab') {
-        e.preventDefault();
-        const editor = e.target;
-        const selection = window.getSelection();
-        const range = selection.getRangeAt(0);
 
-        // Insert a tab space (4 spaces)
-        const tabNode = document.createTextNode('    ');
-        range.insertNode(tabNode);
-
-        // Move caret after the tab space
-        range.setStartAfter(tabNode);
-        range.setEndAfter(tabNode);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
-});
 
 
 
