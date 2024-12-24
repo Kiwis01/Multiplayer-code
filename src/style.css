@@ -21,20 +21,14 @@ body {
   display: flex;
   flex-direction: column;
 }
-#editor {
-  flex: 1;
-  background: #282c34;
-  padding: 10px;
-  overflow-y: auto;
-  font-family: monospace;
-}
+
 #console {
-  height: 30%;
-  background-color: #212529;
+  background-color: black;
   color: white;
   padding: 10px;
   overflow-y: auto;
   font-family: monospace;
+  height: 150px;
 }
 .problem-title {
   font-size: 1.5rem;

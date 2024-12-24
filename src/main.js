@@ -1,9 +1,16 @@
-// Initialize Ace editor
-const editor = ace.edit("editor");
-editor.setTheme("ace/theme/ambiance");
-editor.session.setMode("ace/mode/python");
+// Code editor
+const editor = CodeMirror(document.getElementById("editor"), {
+    mode: "python",      
+    theme: "material",        // to change: https://codemirror.net/5/demo/theme.html#material
+    lineNumbers: true,       // line numbers
+    value: "print('Hello, Lug')", // Initial content
+    tabSize: 4,             
+    indentWithTabs: true     
+});
+// Size change for code editor
+editor.setSize(1100, 600);
 
-// Initialize button click event
+// Run code button event to handle running the code
 const btn = document.getElementById("run-code");
 const consoleOutput = document.getElementById('console');
 
@@ -41,3 +48,8 @@ async function main(pythonCode) {
         outputDiv.innerText = `Error: ${error.message}`;
     }
 }
+
+
+
+
+
